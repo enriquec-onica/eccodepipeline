@@ -8,8 +8,9 @@ phases:
     commands:
       - ls
       - pwd
-      - mkdir vm-multistore
-      - rsync -av --progress * ./vm-megastore --exclude vm-multistore
+      - mkdir /tmp/vm-multistore
+      - mv * /tmp/vm-multistore
+      - mv /tmp/vm-multistore ./vm-multistore
       - git clone git@bitbucket.org:nbdev/vapewild-magentopacker.git
       - cd vapwild-magentopacker
       - make code_build_ami
