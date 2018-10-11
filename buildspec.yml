@@ -1,6 +1,9 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - apk add --no-cache openssh
   pre_build:
     commands:
       - cat buildspec.yml
