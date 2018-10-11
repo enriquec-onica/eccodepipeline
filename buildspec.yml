@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    - cat buildspec.yml
+  build:
+    commands:
+      - ls
+      - pwd
+      - mkdir vm-multistore
+      - rsync -av --progress * ./vm-megastore --exclude vm-multistore
+      - git clone git@bitbucket.org:nbdev/vapewild-magentopacker.git
+      - cd vapwild-magentopacker
+      - make code_build_ami
+artifacts:
+  files:
+    - '**/*'
+  name: myname-$(date +%Y-%m-%d)
