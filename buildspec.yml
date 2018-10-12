@@ -7,6 +7,7 @@ phases:
   pre_build:
     commands:
       - cat buildspec.yml
+      - chmod 400 ./vapewild-magentopacker.bitbucket
   build:
     commands:
       - ls
@@ -14,10 +15,5 @@ phases:
       - mkdir /tmp/vm-multistore
       - mv * /tmp/vm-multistore
       - mv /tmp/vm-multistore ./vm-multistore
-      - git clone git@bitbucket.org:nbdev/vapewild-magentopacker.git
       - cd vapwild-magentopacker
       - make code_build_ami
-artifacts:
-  files:
-    - '**/*'
-  name: myname-$(date +%Y-%m-%d)
